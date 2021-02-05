@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameUIController : MonoBehaviour
 {
+    //
+    public GameObject[] playerHealths;
+
+    public GameObject comboTextObj;
+    public Text comboCountObj;
+
     //
     Animator animator;
 
