@@ -17,6 +17,8 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 uppercutForce;
     public Vector2 diveForce;
 
+    public bool facingRight = false;
+
     Rigidbody2D rigidbody2d;
     Collider2D atkboxMid;
     Collider2D atkboxHigh;
@@ -59,9 +61,15 @@ public class PlayerAttack : MonoBehaviour
         switch (input)
         {
             case ("8"): if(!inAir)  StartCoroutine(Action(uppercutForce, 0.0f));break;
-            case ("6"):             StartCoroutine(Action(farJabForce, 0.25f)); break;
-            case ("66"):             StartCoroutine(Action(reallyFarJabForce, .6f)); break;
-            case ("2"): if (inAir) StartCoroutine(Action(diveForce, 0.1f)); attackCD +=0.3f ; break;
+
+            case ("6"):        
+            case ("4"):             StartCoroutine(Action(farJabForce, 0.25f)); break;
+
+            case ("66"):    
+            case ("44"):            StartCoroutine(Action(reallyFarJabForce, .6f)); attackCD += 0.3f; break;
+
+            case ("2"): if (inAir)  StartCoroutine(Action(diveForce, 0.1f)); attackCD +=0.3f ; break;
+
             default:                StartCoroutine(Action(jabForce, 0.0f)); break;
         }
 
@@ -75,6 +83,8 @@ public class PlayerAttack : MonoBehaviour
         rigidbody2d.gravityScale = 0.0f;
         yield return new WaitForSeconds(delay);
         rigidbody2d.gravityScale = 1.0f;
+
+        if (!facingRight) force *= new Vector2(-1f, 1f);
         rigidbody2d.velocity = force;
         yield return 0;
     }
@@ -91,7 +101,17 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+
             inputKeys.Add('6');
+            facingRight = true;
+            inputHoldTime = 0.5f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+
+            inputKeys.Add('4');
+            facingRight = false;
             inputHoldTime = 0.5f;
         }
 
