@@ -5,20 +5,17 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
+    public int layermask;
+
+
     public List<char> inputKeys;
     float inputHoldTime;
 
     public Vector2 jabForce;
-    public float jabCD;
-
     public Vector2 farJabForce;
-    public Vector2 farJabCD;
-
+    public Vector2 reallyFarJabForce;
     public Vector2 uppercutForce;
-    public float upperCutCD;
-
-
-
+    public Vector2 diveForce;
 
     Rigidbody2D rigidbody2d;
     Collider2D atkboxMid;
@@ -26,10 +23,15 @@ public class PlayerAttack : MonoBehaviour
 
     float attackCD = 0f;
     float atkboxDuration = 0f;
+
+    bool inAir;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
+
+        layermask = (1 << 8);   //Player
+        layermask = ~layermask;
 
     }
 
@@ -42,11 +44,9 @@ public class PlayerAttack : MonoBehaviour
             {
                 LowInput();
             }
-
         }
-
-
         KeyInput();
+        CheckIfInAir();
         attackCD -= Time.deltaTime;
     }
 
@@ -54,34 +54,31 @@ public class PlayerAttack : MonoBehaviour
     void LowInput()
     {
         string input = InputToString();
-        
-        switch(input)
+        attackCD = 0.1f;
+
+        switch (input)
         {
-            case ("8"):UpperCut();break;
-            case ("6"):FarJab();break;
-            default:LowJab();break;
+            case ("8"): if(!inAir)  StartCoroutine(Action(uppercutForce, 0.0f));break;
+            case ("6"):             StartCoroutine(Action(farJabForce, 0.25f)); break;
+            case ("66"):             StartCoroutine(Action(reallyFarJabForce, .6f)); break;
+            case ("2"): if (inAir) StartCoroutine(Action(diveForce, 0.1f)); attackCD +=0.3f ; break;
+            default:                StartCoroutine(Action(jabForce, 0.0f)); break;
         }
 
     }
+    
 
-    void LowJab()
+
+    IEnumerator Action(Vector2 force, float delay)
     {
-        rigidbody2d.AddForce(jabForce, ForceMode2D.Impulse);
-        attackCD = 0.5f;
+        rigidbody2d.velocity = new Vector2();
+        rigidbody2d.gravityScale = 0.0f;
+        yield return new WaitForSeconds(delay);
+        rigidbody2d.gravityScale = 1.0f;
+        rigidbody2d.velocity = force;
+        yield return 0;
     }
 
-    void FarJab()
-    {
-        rigidbody2d.AddForce(farJabForce, ForceMode2D.Impulse);
-        attackCD = 1f;
-
-    }
-
-    void UpperCut()
-    {
-        rigidbody2d.AddForce(uppercutForce, ForceMode2D.Impulse);
-        attackCD = 1f;
-    }    
 
 
     void KeyInput()
@@ -92,12 +89,17 @@ public class PlayerAttack : MonoBehaviour
             inputHoldTime = 0.5f;
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !inputKeys.Contains('6'))
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             inputKeys.Add('6');
             inputHoldTime = 0.5f;
         }
 
+        if (Input.GetKeyDown(KeyCode.DownArrow) && !inputKeys.Contains('2'))
+        {
+            inputKeys.Add('2');
+            inputHoldTime = 0.5f;
+        }
 
         inputHoldTime -= Time.deltaTime;
         if (inputHoldTime < 0.0f) inputKeys.Clear();
@@ -110,5 +112,22 @@ public class PlayerAttack : MonoBehaviour
         foreach (char c in inputKeys) result = result + c;
         inputKeys.Clear();
         return result;
+    }
+
+    void CheckIfInAir()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 0.36f, transform.position.y), Vector2.down, .6f, layermask);
+        RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(transform.position.x - 0.36f, transform.position.y), Vector2.down, .6f, layermask);
+
+        if (hit || hit2)
+        {
+            inAir = false;
+            Debug.DrawLine(new Vector2(transform.position.x + 0.36f, transform.position.y), hit.point, Color.cyan);
+            Debug.DrawLine(new Vector2(transform.position.x - 0.36f, transform.position.y), hit2.point, Color.cyan);
+        }
+
+        else
+            inAir = true;
+
     }
 }
