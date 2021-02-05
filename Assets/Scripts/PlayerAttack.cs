@@ -19,9 +19,14 @@ public class PlayerAttack : MonoBehaviour
 
     public bool facingRight = false;
 
+    public Transform ballProjectile;
+    public float ballForce;
+
+
     Rigidbody2D rigidbody2d;
     Collider2D atkboxMid;
     Collider2D atkboxHigh;
+
 
     float attackCD = 0f;
     float atkboxDuration = 0f;
@@ -70,6 +75,10 @@ public class PlayerAttack : MonoBehaviour
 
             case ("2"): if (inAir)  StartCoroutine(Action(diveForce, 0.1f)); attackCD +=0.3f ; break;
 
+
+            case ("236"):            Hadouken(true) ; break;
+            case ("214"):            Hadouken(false) ; break;
+
             default:                StartCoroutine(Action(jabForce, 0.0f)); break;
         }
 
@@ -90,6 +99,15 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
+    void Hadouken(bool facingRight)
+    {
+        float force = ballForce;
+        if (!facingRight) force *= -1f;
+
+        Rigidbody2D rigid2D = Instantiate(ballProjectile, transform).GetComponent<Rigidbody2D>();
+        rigid2D.AddForce(new Vector2(force, 0.0f), ForceMode2D.Impulse);
+    }
+
 
     void KeyInput()
     {
@@ -101,8 +119,9 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            if (inputKeys.Contains('2')) inputKeys.Add('3');
+            else                         inputKeys.Add('6');
 
-            inputKeys.Add('6');
             facingRight = true;
             inputHoldTime = 0.5f;
         }
@@ -110,7 +129,8 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
 
-            inputKeys.Add('4');
+            if (inputKeys.Contains('2')) inputKeys.Add('1');
+            else                         inputKeys.Add('4');
             facingRight = false;
             inputHoldTime = 0.5f;
         }
@@ -120,6 +140,14 @@ public class PlayerAttack : MonoBehaviour
             inputKeys.Add('2');
             inputHoldTime = 0.5f;
         }
+
+        if(Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            if (inputKeys.Contains('3')) inputKeys.Add('6');
+            else if (inputKeys.Contains('1')) inputKeys.Add('4');
+        }
+
+
 
         inputHoldTime -= Time.deltaTime;
         if (inputHoldTime < 0.0f) inputKeys.Clear();
