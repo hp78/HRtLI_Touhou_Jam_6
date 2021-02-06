@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     //
     public GameUIController gameUIController;
+
+    //
+    [Space(5)]
+    public string currScene;
+    public string nextScene;
+
+    //
+    [Space(5)]
+    public IntVal playerHealth;
+
+    bool isLastScene = false;
 
     //
     public enum GameState { LOADING, PLAYING, PAUSED, NEXTLEVEL, WIN , GAMEOVER };
@@ -14,7 +26,10 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(currScene == "")
+            currScene = SceneManager.GetActiveScene().name;
+        if (nextScene == "")
+            isLastScene = true;
     }
 
     // Update is called once per frame
@@ -30,7 +45,10 @@ public class GameStateManager : MonoBehaviour
 
     void Playing()
     {
+        if(playerHealth.value < 1)
+        {
 
+        }
     }
 
     void Paused()
@@ -40,7 +58,10 @@ public class GameStateManager : MonoBehaviour
 
     void Nextlevel()
     {
+        if (isLastScene)
+        {
 
+        }
     }
 
     void Win()
@@ -51,6 +72,11 @@ public class GameStateManager : MonoBehaviour
     void Gameover()
     {
 
+    }
+
+    void Restart()
+    {
+        SceneManager.LoadScene(currScene);
     }
 
     void UpdateInput()

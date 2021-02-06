@@ -248,6 +248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameUIController: {fileID: 1892113895}
+  currScene: 
+  nextScene: 
+  playerHealth: {fileID: 0}
   currGameState: 1
 --- !u!1 &1392445916
 GameObject:
