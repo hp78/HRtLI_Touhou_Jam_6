@@ -20,11 +20,13 @@ public class EnemyTakeDamagePhysics : MonoBehaviour
         
     }
 
-    IEnumerator TakeDmg()
+    IEnumerator TakeDmg(bool right)
     {
         rigidbody2d.velocity = new Vector2();
-        Debug.Log("SHIT");
+       // Debug.Log("SHIT");
         yield return new WaitForSeconds(0.2f);
+        if (right) Addforce *= new Vector2(-1f, 1f);
+
         rigidbody2d.AddForce(Addforce,ForceMode2D.Impulse);
         enemyMook.ReceiveDamage();
         yield return 0;
@@ -34,7 +36,10 @@ public class EnemyTakeDamagePhysics : MonoBehaviour
     {
         if(collision.CompareTag("PlayerAttackBox"))
         {
-           StartCoroutine( TakeDmg());
+            Vector2 temp = collision.gameObject.transform.position - transform.position;
+            bool tempb = false;
+            if (temp.x > 0f) tempb = true;
+            StartCoroutine( TakeDmg(tempb));
         }
     }
 }

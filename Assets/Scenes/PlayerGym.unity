@@ -188,13 +188,65 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMeleeMook
       objectReference: {fileID: 0}
+    - target: {fileID: 5609736388176038526, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: m_Name
+      value: sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517033596335010025, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: atkCD
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6517033596335010025, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
         type: 3}
       propertyPath: enemyHealth
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6517033596335010025, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: currEnemyState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517033596335010025, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: attackAnimation
+      value: 
+      objectReference: {fileID: 879215052}
+    - target: {fileID: 7512992640663432083, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: m_Time
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7512992640663432083, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: m_Emitting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7512992640663432083, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7512992640663432083, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 7589957166453381528, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+        type: 3}
+      propertyPath: m_Name
+      value: sword
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5478825867444339303, guid: dc2a4489d4bd7ed48a39a0c3966ed750, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc2a4489d4bd7ed48a39a0c3966ed750, type: 3}
+--- !u!95 &879215052 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2143728262713603196, guid: dc2a4489d4bd7ed48a39a0c3966ed750,
+    type: 3}
+  m_PrefabInstance: {fileID: 846104298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &918477663
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +989,26 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &979203518 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1403295445693954542, guid: 8d719ee9f7d7d0343839199b62046f80,
+    type: 3}
+  m_PrefabInstance: {fileID: 1403295445800684624}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &979203523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979203518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff94779a5e44b045908b3aaed58b83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addforce: {x: 2, y: 2}
+  invulCD: 2
 --- !u!1 &2093028622
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1060,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1403295444348164045, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403295445168562768, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403295445168562768, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403295445601444313, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403295445601444313, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1403295445693954449, guid: 8d719ee9f7d7d0343839199b62046f80,
         type: 3}
       propertyPath: m_RootOrder
@@ -1043,10 +1140,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1403295445693954450, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: inAir
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1403295445693954542, guid: 8d719ee9f7d7d0343839199b62046f80,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403295445776750515, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403295445776750515, guid: 8d719ee9f7d7d0343839199b62046f80,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d719ee9f7d7d0343839199b62046f80, type: 3}
@@ -1116,6 +1228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BallProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689708043067018540, guid: bcdd57f14e70fcd438b9ea0d35886531,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcdd57f14e70fcd438b9ea0d35886531, type: 3}

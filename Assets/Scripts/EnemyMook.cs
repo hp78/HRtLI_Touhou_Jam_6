@@ -82,7 +82,7 @@ public class EnemyMook : MonoBehaviour
                 StopCoroutine(currCoroutine);
             currCoroutine = StartCoroutine(DamageFlicker());
 
-            internalAtkCD += .3f;
+            internalAtkCD = 1f;
         }
     }
 
