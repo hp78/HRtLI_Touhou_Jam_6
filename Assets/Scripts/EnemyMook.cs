@@ -62,7 +62,7 @@ public class EnemyMook : MonoBehaviour
         if (enemyHealth < 1)
         {
             currEnemyState = EnemyState.DEAD;
-            animator.SetInteger("EnemyState", 3);
+            //animator.SetInteger("EnemyState", 3);
             gameObject.SetActive(false);
             Instantiate(deathFX, transform.position, Quaternion.identity);
         }
