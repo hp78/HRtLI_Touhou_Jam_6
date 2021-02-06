@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d150317c3678742bbac31fde128d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currEnemyState: 1
+  currEnemyState: 0
   enemyHealth: 10
   isMelee: 0
   animator: {fileID: 4294094820686876051}
@@ -384,6 +384,7 @@ MonoBehaviour:
   enemyProjectile: {fileID: 3534270102190259293}
   projectileSpawnPos: {fileID: 3534270102127384618}
   projectileSpeed: {x: -5, y: 0}
+  player: {fileID: 0}
 --- !u!50 &476242666040419212
 Rigidbody2D:
   serializedVersion: 4

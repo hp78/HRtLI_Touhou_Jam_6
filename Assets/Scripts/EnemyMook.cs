@@ -27,6 +27,8 @@ public class EnemyMook : MonoBehaviour
     public Transform projectileSpawnPos;
     public Vector2 projectileSpeed;
 
+    public Transform player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,9 @@ public class EnemyMook : MonoBehaviour
         {
             mookBehaviour = RangeBehaviour;
         }
+
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -45,7 +50,7 @@ public class EnemyMook : MonoBehaviour
     {
         if (currEnemyState == EnemyState.IDLE)
         {
-            // if player nearby go active
+            if (Vector3.Magnitude(player.position - this.transform.position) < 5f) currEnemyState = EnemyState.ACTIVE;
         }
         else if (currEnemyState == EnemyState.ACTIVE)
         {
