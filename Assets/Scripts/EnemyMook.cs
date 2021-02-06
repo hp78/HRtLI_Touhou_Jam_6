@@ -19,6 +19,10 @@ public class EnemyMook : MonoBehaviour
     delegate void MookBehaviour();
     MookBehaviour mookBehaviour;
 
+    public Animator attackAnimation;
+    public float atkCD;
+    public float internalAtkCD;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +46,18 @@ public class EnemyMook : MonoBehaviour
         else if (currEnemyState == EnemyState.ACTIVE)
         {
             mookBehaviour();
+            internalAtkCD -= Time.deltaTime;
         }
+
     }
 
     void MeleeBehaviour()
     {
-        // melee attack every x seconds
+       if(internalAtkCD < 0.0f)
+        {
+            attackAnimation.Play("SwingSword");
+            internalAtkCD = atkCD;
+        }
     }
 
     void RangeBehaviour()
@@ -71,6 +81,8 @@ public class EnemyMook : MonoBehaviour
             if (currCoroutine != null)
                 StopCoroutine(currCoroutine);
             currCoroutine = StartCoroutine(DamageFlicker());
+
+            internalAtkCD += .3f;
         }
     }
 
