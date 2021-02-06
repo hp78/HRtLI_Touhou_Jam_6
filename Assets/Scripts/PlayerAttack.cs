@@ -7,6 +7,13 @@ public class PlayerAttack : MonoBehaviour
 
     public int layermask;
 
+    public enum AttackBoxArea
+    {
+        HIGH,
+        LOW,
+        NEAR,
+        FAR
+    }
 
     public List<char> inputKeys;
     float inputHoldTime;
@@ -17,19 +24,24 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 uppercutForce;
     public Vector2 diveForce;
 
+    public Transform atkBoxNear;
+    public Transform atkBoxFar;
+    public Transform atkBoxHigh;
+    public Transform atkBoxDown;
+
+    public Transform atkBoxNearR;
+    public Transform atkBoxFarR;
+    public Transform atkBoxHighR;
+    public Transform atkBoxDownR;
+
     public bool facingRight = false;
 
     public Transform ballProjectile;
     public float ballForce;
 
-
     Rigidbody2D rigidbody2d;
-    Collider2D atkboxMid;
-    Collider2D atkboxHigh;
-
 
     float attackCD = 0f;
-    float atkboxDuration = 0f;
 
     bool inAir;
     // Start is called before the first frame update
@@ -54,7 +66,10 @@ public class PlayerAttack : MonoBehaviour
         }
         KeyInput();
         CheckIfInAir();
+
         attackCD -= Time.deltaTime;
+
+
     }
 
 
@@ -65,36 +80,80 @@ public class PlayerAttack : MonoBehaviour
 
         switch (input)
         {
-            case ("8"): if(!inAir)  StartCoroutine(Action(uppercutForce, 0.0f));break;
+            case ("8"): if(!inAir)  StartCoroutine(Action(uppercutForce, 0.0f, AttackBoxArea.HIGH, 1f));break;
 
             case ("6"):        
-            case ("4"):             StartCoroutine(Action(farJabForce, 0.25f)); break;
+            case ("4"):             StartCoroutine(Action(farJabForce, 0.25f, AttackBoxArea.FAR, .5f)); break;
 
             case ("66"):    
-            case ("44"):            StartCoroutine(Action(reallyFarJabForce, .6f)); attackCD += 0.3f; break;
+            case ("44"):            StartCoroutine(Action(reallyFarJabForce, .6f, AttackBoxArea.FAR, 1f)); attackCD += 0.3f; break;
 
-            case ("2"): if (inAir)  StartCoroutine(Action(diveForce, 0.1f)); attackCD +=0.3f ; break;
+            case ("2"): if (inAir)  StartCoroutine(Action(diveForce, 0.1f, AttackBoxArea.LOW, .5f)); attackCD +=0.3f ; break;
 
 
             case ("236"):            Hadouken(true) ; break;
             case ("214"):            Hadouken(false) ; break;
 
-            default:                StartCoroutine(Action(jabForce, 0.0f)); break;
+            default:                StartCoroutine(Action(jabForce, 0.0f, AttackBoxArea.NEAR, 0.2f)); break;
         }
 
     }
     
 
 
-    IEnumerator Action(Vector2 force, float delay)
+    IEnumerator Action(Vector2 force, float delay, AttackBoxArea atkBoxArea, float boxDuration)
     {
         rigidbody2d.velocity = new Vector2();
         rigidbody2d.gravityScale = 0.0f;
         yield return new WaitForSeconds(delay);
+
+
+        Transform spawnBox;
+
+        switch (atkBoxArea)
+        {
+            case (AttackBoxArea.FAR):
+                {
+                    if (!facingRight) spawnBox = atkBoxFar;
+                    else                spawnBox = atkBoxFarR;
+                    break;
+                }
+            case (AttackBoxArea.LOW):
+                {
+                    if (!facingRight) spawnBox = atkBoxDown;
+                    else                spawnBox = atkBoxDownR;
+                    break;
+                }
+            case (AttackBoxArea.NEAR):
+                {
+                    if (!facingRight) spawnBox = atkBoxNear;
+                    else                spawnBox = atkBoxNearR;
+                    break;
+                }
+            case (AttackBoxArea.HIGH):
+                {
+                    if (!facingRight) spawnBox = atkBoxHigh;
+                    else                spawnBox = atkBoxHighR;
+                    break;
+                }
+
+            default: spawnBox = atkBoxNear; break;
+        }
+
+
+        if (!facingRight)
+        {
+            force *= new Vector2(-1f, 1f);
+        }
+        rigidbody2d.velocity = force;
+
+        Transform tempBox = Instantiate(spawnBox, spawnBox.position ,spawnBox.rotation, this.transform);
+        tempBox.gameObject.SetActive(true);
+        Destroy(tempBox.gameObject, boxDuration);
+
         rigidbody2d.gravityScale = 1.0f;
 
-        if (!facingRight) force *= new Vector2(-1f, 1f);
-        rigidbody2d.velocity = force;
+
         yield return 0;
     }
 
@@ -131,6 +190,7 @@ public class PlayerAttack : MonoBehaviour
 
             if (inputKeys.Contains('2')) inputKeys.Add('1');
             else                         inputKeys.Add('4');
+
             facingRight = false;
             inputHoldTime = 0.5f;
         }
@@ -178,4 +238,5 @@ public class PlayerAttack : MonoBehaviour
             inAir = true;
 
     }
+
 }
