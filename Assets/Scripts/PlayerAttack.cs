@@ -45,6 +45,7 @@ public class PlayerAttack : MonoBehaviour
 
     float attackCD = 0f;
 
+
     bool inAir;
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,8 @@ public class PlayerAttack : MonoBehaviour
 
         sprite.flipX = facingRight;
 
+
+        if (rigidbody2d.gravityScale < 1f) rigidbody2d.gravityScale += .01f;
     }
 
 
@@ -154,7 +157,7 @@ public class PlayerAttack : MonoBehaviour
         tempBox.gameObject.SetActive(true);
         Destroy(tempBox.gameObject, boxDuration);
 
-        rigidbody2d.gravityScale = 1.0f;
+        
 
 
         yield return 0;
@@ -168,6 +171,7 @@ public class PlayerAttack : MonoBehaviour
 
         Rigidbody2D rigid2D = Instantiate(ballProjectile, transform).GetComponent<Rigidbody2D>();
         rigid2D.AddForce(new Vector2(force, 0.0f), ForceMode2D.Impulse);
+        Destroy(rigid2D.gameObject, 3f);
     }
 
 
