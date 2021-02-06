@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295444290472239}
   - component: {fileID: 1403295444290472400}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LowAtBox
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295444659507711}
   - component: {fileID: 1403295444659507680}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: HighAtkBox
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295444788398082}
   - component: {fileID: 1403295444788398083}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295444858791593}
   - component: {fileID: 1403295444858791594}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295444898700659}
   - component: {fileID: 1403295444898700660}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295444914022701}
   - component: {fileID: 1403295444914022702}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: MidAtkBoxFar
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}
@@ -597,7 +597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295444943798268}
   - component: {fileID: 1403295444943798269}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: MidAtkBoxShortR
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295445485717942}
   - component: {fileID: 1403295445485717943}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1103,7 +1103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295445818169484}
   - component: {fileID: 1403295445818169485}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: HighAtkBoxR
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295445980353973}
   - component: {fileID: 1403295445980353974}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,7 +1243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295446003464794}
   - component: {fileID: 1403295446003464795}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1325,7 +1325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295446107014887}
   - component: {fileID: 1403295446107014888}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: LowAtBox R
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}
@@ -1383,7 +1383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295446169897578}
   - component: {fileID: 1403295446169897579}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1465,7 +1465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295446181314938}
   - component: {fileID: 1403295446181314939}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: MidAtkBoxFarR
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}
@@ -1523,7 +1523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295446258479997}
   - component: {fileID: 1403295446258479998}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1605,7 +1605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295446300064574}
   - component: {fileID: 1403295446300064575}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: MidAtkBoxShort
   m_TagString: PlayerAttackBox
   m_Icon: {fileID: 0}

@@ -365,9 +365,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7903542929262787409}
   - component: {fileID: 8271752711453354694}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: EnemyAttackBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

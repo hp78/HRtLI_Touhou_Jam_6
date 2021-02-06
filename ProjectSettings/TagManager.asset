@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Undefined
   - PlayerAttackBox
+  - EnemyAttackBox
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
-  - 
-  - 
+  - PlayerAttackBox
+  - EnemyAttackBox
+  - IgnoreJump
   - 
   - 
   - 

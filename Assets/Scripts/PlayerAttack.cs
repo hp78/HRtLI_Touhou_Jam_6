@@ -45,13 +45,16 @@ public class PlayerAttack : MonoBehaviour
 
     float attackCD = 0f;
 
+    float gettingHitCD;
+    Coroutine currCoroutine = null;
 
-    bool inAir;
+    public bool inAir;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
 
+        layermask = (1 << 10);   //Player
         layermask = (1 << 8);   //Player
         layermask = ~layermask;
 
@@ -60,22 +63,24 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attackCD < 0f)
+        if (gettingHitCD < 0.0f)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (attackCD < 0f)
             {
-                LowInput();
+                if (Input.GetKeyDown(KeyCode.Z))
+                {
+                    LowInput();
+                }
             }
+            KeyInput();
+            CheckIfInAir();
+
+            attackCD -= Time.deltaTime;
+            sprite.flipX = facingRight;
+            if (rigidbody2d.gravityScale < 1f) rigidbody2d.gravityScale += .01f;
         }
-        KeyInput();
-        CheckIfInAir();
 
-        attackCD -= Time.deltaTime;
-
-        sprite.flipX = facingRight;
-
-
-        if (rigidbody2d.gravityScale < 1f) rigidbody2d.gravityScale += .01f;
+        gettingHitCD -= Time.deltaTime;
     }
 
 
@@ -239,11 +244,35 @@ public class PlayerAttack : MonoBehaviour
             inAir = false;
             Debug.DrawLine(new Vector2(transform.position.x + 0.36f, transform.position.y), hit.point, Color.cyan);
             Debug.DrawLine(new Vector2(transform.position.x - 0.36f, transform.position.y), hit2.point, Color.cyan);
+            
         }
 
         else
             inAir = true;
-
     }
 
+    public void ReceiveDamage()
+    {
+        gettingHitCD = 0.75f;
+        if (currCoroutine != null)
+            StopCoroutine(currCoroutine);
+        currCoroutine = StartCoroutine(DamageFlicker());
+    }
+
+
+
+    IEnumerator DamageFlicker()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForFixedUpdate();
+        sprite.color = Color.white;
+        yield return new WaitForFixedUpdate();
+        sprite.color = Color.black;
+        yield return new WaitForFixedUpdate();
+        sprite.color = Color.red;
+        yield return new WaitForFixedUpdate();
+        sprite.color = Color.white;
+        currCoroutine = null;
+        yield return new WaitForFixedUpdate();
+    }
 }
