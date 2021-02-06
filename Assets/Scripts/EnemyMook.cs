@@ -23,6 +23,10 @@ public class EnemyMook : MonoBehaviour
     public float atkCD;
     public float internalAtkCD;
 
+    public Transform enemyProjectile;
+    public Transform projectileSpawnPos;
+    public Vector2 projectileSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +66,17 @@ public class EnemyMook : MonoBehaviour
 
     void RangeBehaviour()
     {
-        // range attack every x seconds
+        if (internalAtkCD < 0.0f)
+        {
+            Rigidbody2D temp = Instantiate(enemyProjectile, projectileSpawnPos.position, enemyProjectile.rotation).GetComponent<Rigidbody2D>();
+            temp.gameObject.SetActive(true);
+            temp.velocity = projectileSpeed;
+            Destroy(temp.gameObject, 5f);
+            attackAnimation.Play("GunFire");
+            internalAtkCD = atkCD;
+
+
+        }
     }
 
     public void ReceiveDamage(int val = 1)
@@ -82,7 +96,7 @@ public class EnemyMook : MonoBehaviour
                 StopCoroutine(currCoroutine);
             currCoroutine = StartCoroutine(DamageFlicker());
 
-            internalAtkCD = 1f;
+            internalAtkCD = 2f;
         }
     }
 

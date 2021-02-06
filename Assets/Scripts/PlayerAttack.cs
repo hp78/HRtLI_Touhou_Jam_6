@@ -54,9 +54,11 @@ public class PlayerAttack : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
 
-        layermask = (1 << 10);   //Player
-        layermask = (1 << 8);   //Player
-        layermask = ~layermask;
+        layermask = (1 << 0);   //Player
+//        layermask = (1 << 8);   //Player
+
+
+       // layermask = ~layermask;
 
     }
 
@@ -182,7 +184,7 @@ public class PlayerAttack : MonoBehaviour
 
     void KeyInput()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && !inputKeys.Contains('8'))
+        if (Input.GetKey(KeyCode.UpArrow) && !inputKeys.Contains('8'))
         {
             inputKeys.Add('8');
             inputHoldTime = 0.5f;
@@ -207,7 +209,7 @@ public class PlayerAttack : MonoBehaviour
             inputHoldTime = 0.5f;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !inputKeys.Contains('2'))
+        if (Input.GetKey(KeyCode.DownArrow) && !inputKeys.Contains('2'))
         {
             inputKeys.Add('2');
             inputHoldTime = 0.5f;

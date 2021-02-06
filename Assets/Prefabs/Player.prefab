@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1403295444348164080}
   - component: {fileID: 1403295444348164047}
   - component: {fileID: 1403295444348164046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295445168562770}
   - component: {fileID: 1403295445168562769}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bg_-_moon_-_earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295445601444315}
   - component: {fileID: 1403295445601444314}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bg_-_moon_-_stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,9 +898,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1403295445693954449}
-  - component: {fileID: 1403295445693954448}
   - component: {fileID: 1403295445693954543}
   - component: {fileID: 1403295445693954450}
+  - component: {fileID: 979203523}
+  - component: {fileID: 5315357752594191131}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -932,32 +933,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1403295445693954448
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1403295445693954542}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.1}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8, y: 2.7}
-  m_EdgeRadius: 0
 --- !u!50 &1403295445693954543
 Rigidbody2D:
   serializedVersion: 4
@@ -996,7 +971,7 @@ MonoBehaviour:
   jabForce: {x: 2, y: 0}
   farJabForce: {x: 3.5, y: 0}
   reallyFarJabForce: {x: 10, y: 0}
-  uppercutForce: {x: 1, y: 10}
+  uppercutForce: {x: 1, y: 5}
   diveForce: {x: 0.5, y: -5}
   atkBoxNear: {fileID: 1403295446300064574}
   atkBoxFar: {fileID: 1403295444914022701}
@@ -1012,6 +987,37 @@ MonoBehaviour:
   ballForce: 10
   groundDetect: 1.5
   sprite: {fileID: 1403295444170034173}
+  inAir: 1
+--- !u!114 &979203523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403295445693954542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cff94779a5e44b045908b3aaed58b83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addforce: {x: 2, y: 2}
+  invulCD: 2
+--- !u!70 &5315357752594191131
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403295445693954542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 0.8, y: 2.7}
+  m_Direction: 0
 --- !u!1 &1403295445776750515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403295445776750517}
   - component: {fileID: 1403295445776750516}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bg_-_moon_-_space
   m_TagString: Untagged
   m_Icon: {fileID: 0}
