@@ -59,7 +59,7 @@ public class EnemyMook : MonoBehaviour
     {
         --enemyHealth;
 
-        if(enemyHealth < 1)
+        if (enemyHealth < 1)
         {
             currEnemyState = EnemyState.DEAD;
             animator.SetInteger("EnemyState", 3);

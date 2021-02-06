@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6517033596335010025}
   - component: {fileID: 8907315023540029665}
   - component: {fileID: 8900475584405664258}
+  - component: {fileID: 3783928300977626055}
   m_Layer: 9
   m_Name: EnemyMeleeMook
   m_TagString: Untagged
@@ -99,6 +100,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.8}
   m_EdgeRadius: 0
+--- !u!114 &3783928300977626055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690054987711318049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a5607f5b97a1242a17f19999fb4c0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Addforce: {x: 2.5, y: 1}
 --- !u!1 &3933972280957799744
 GameObject:
   m_ObjectHideFlags: 0

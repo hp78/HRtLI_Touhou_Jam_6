@@ -40,6 +40,8 @@ public class PlayerAttack : MonoBehaviour
     public float ballForce;
 
     Rigidbody2D rigidbody2d;
+    public float groundDetect;
+    public SpriteRenderer sprite;
 
     float attackCD = 0f;
 
@@ -69,6 +71,7 @@ public class PlayerAttack : MonoBehaviour
 
         attackCD -= Time.deltaTime;
 
+        sprite.flipX = facingRight;
 
     }
 
@@ -224,8 +227,8 @@ public class PlayerAttack : MonoBehaviour
 
     void CheckIfInAir()
     {
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 0.36f, transform.position.y), Vector2.down, .6f, layermask);
-        RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(transform.position.x - 0.36f, transform.position.y), Vector2.down, .6f, layermask);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 0.36f, transform.position.y), Vector2.down, groundDetect, layermask);
+        RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(transform.position.x - 0.36f, transform.position.y), Vector2.down, groundDetect, layermask);
 
         if (hit || hit2)
         {
