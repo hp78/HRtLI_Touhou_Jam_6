@@ -8,9 +8,13 @@ public class EnemyMook : MonoBehaviour
     public EnemyState currEnemyState = EnemyState.IDLE;
     public int enemyHealth = 3;
     public bool isMelee = true;
+
     public Animator animator;
+    public SpriteRenderer spriteRender;
 
     public GameObject deathFX;
+
+    Coroutine currCoroutine = null;
 
     delegate void MookBehaviour();
     MookBehaviour mookBehaviour;
@@ -62,5 +66,31 @@ public class EnemyMook : MonoBehaviour
             gameObject.SetActive(false);
             Instantiate(deathFX, transform.position, Quaternion.identity);
         }
+        else
+        {
+            if (currCoroutine != null)
+                StopCoroutine(currCoroutine);
+            currCoroutine = StartCoroutine(DamageFlicker());
+        }
+    }
+
+    void Test()
+    {
+        ReceiveDamage();
+    }
+
+    IEnumerator DamageFlicker()
+    {
+        spriteRender.color = Color.red;
+        yield return new WaitForFixedUpdate();
+        spriteRender.color = Color.white;
+        yield return new WaitForFixedUpdate();
+        spriteRender.color = Color.black;
+        yield return new WaitForFixedUpdate();
+        spriteRender.color = Color.red;
+        yield return new WaitForFixedUpdate();
+        spriteRender.color = Color.white;
+        currCoroutine = null;
+        yield return new WaitForFixedUpdate();
     }
 }

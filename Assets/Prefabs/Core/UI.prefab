@@ -1773,8 +1773,10 @@ MonoBehaviour:
   - {fileID: 4326039906346567375}
   - {fileID: 8540970870032301792}
   - {fileID: 5317129245810157617}
+  playerHealth: {fileID: 11400000, guid: 22ef181afbf18b5448c916f6daceabc1, type: 2}
   comboTextObj: {fileID: 3841798346934004464}
   comboCountObj: {fileID: 3841798346798332677}
+  playerCombo: {fileID: 11400000, guid: 1120911fc1a972a4a9e329e67bef478e, type: 2}
 --- !u!1 &3841798346555290419
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,7 +2518,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: Retry
 --- !u!1 &6706492498804994432
 GameObject:
   m_ObjectHideFlags: 0

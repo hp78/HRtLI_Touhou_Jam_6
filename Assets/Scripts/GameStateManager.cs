@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameStateManager : MonoBehaviour
 {
     //
+    public static GameStateManager instance;
+
+    //
     public GameUIController guc;
 
     //
@@ -27,6 +30,8 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         if (guc == null)
             guc = GameObject.Find("UI").GetComponent<GameUIController>();
 
@@ -85,7 +90,7 @@ public class GameStateManager : MonoBehaviour
     {
         if(playerHealth.value < 1)
         {
-
+            SetGameover();
         }
     }
 
@@ -96,10 +101,7 @@ public class GameStateManager : MonoBehaviour
 
     void Nextlevel()
     {
-        if (isLastScene)
-        {
-
-        }
+        
     }
 
 
@@ -127,13 +129,32 @@ public class GameStateManager : MonoBehaviour
 
     public void GoToNextLevel()
     {
-
+        currGameState = GameState.NEXTLEVEL;
+        guc.SetGameState(3);
+        SceneManager.LoadScene(nextScene);
     }
 
     public void GoToMainMenu()
     {
-
+        currGameState = GameState.NEXTLEVEL;
+        guc.SetGameState(3);
+        SceneManager.LoadScene("MainMenu");
     }
+
+    public void SetWin()
+    {
+        Time.timeScale = 0.0f;
+        currGameState = GameState.WIN;
+        guc.SetGameState(4);
+    }
+
+    public void SetGameover()
+    {
+        Time.timeScale = 0.0f;
+        currGameState = GameState.GAMEOVER;
+        guc.SetGameState(5);
+    }
+
 
     public void QuitGame()
     {
@@ -142,11 +163,6 @@ public class GameStateManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    public void LoadNextLevel()
-    {
-
     }
 
     void UpdateInput()

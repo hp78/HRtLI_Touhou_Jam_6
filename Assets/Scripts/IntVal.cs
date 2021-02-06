@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New IntVal", menuName = "Scriptable INT", order = 51)]
 public class IntVal : ScriptableObject
 {
+    [SerializeField]
     int val;
 
     public int value

@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currEnemyState: 0
-  enemyHealth: 0
+  enemyHealth: 3
   isMelee: 1
   animator: {fileID: 5084959259406444286}
+  spriteRender: {fileID: 898181228524938450}
   deathFX: {fileID: 180128, guid: 166b62d9f20a44949a5500d786fce32f, type: 3}
 --- !u!50 &8907315023540029665
 Rigidbody2D:
