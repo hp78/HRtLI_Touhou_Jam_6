@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class GameUIController : MonoBehaviour
 {
     //
+    public GameStateManager gsm;
+
+    //
     public GameObject[] playerHealths;
 
     public GameObject comboTextObj;
@@ -17,6 +20,8 @@ public class GameUIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (gsm == null)
+            gsm = GameObject.Find("GameStateManager").GetComponent<GameStateManager>();
         animator = GetComponent<Animator>();
     }
 
@@ -29,5 +34,30 @@ public class GameUIController : MonoBehaviour
     public void SetGameState(int val)
     {
         animator.SetInteger("GameState", val);
+    }
+
+    public void ResumeButton()
+    {
+        gsm.ResumeGame();
+    }
+
+    public void RestartButton()
+    {
+        gsm.RestartGame();
+    }
+
+    public void MainMenuButton()
+    {
+        gsm.GoToMainMenu();
+    }
+
+    public void QuitButton()
+    {
+        gsm.QuitGame();
+    }
+
+    public void NextLevelButton()
+    {
+        gsm.GoToNextLevel();
     }
 }
