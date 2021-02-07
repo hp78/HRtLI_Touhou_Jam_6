@@ -78,6 +78,11 @@ public class EnemyMook : MonoBehaviour
                 rigidbody2d.velocity= new Vector2(moveForce, 2f);
                 internalMoveCD = moveCD;
             }   
+            else if((Vector3.Magnitude(player.position - this.transform.position) <= 1f && internalAtkCD < 0.0f) )
+                {
+                attackAnimation.Play("SwingSword");
+                internalAtkCD = atkCD;
+            }
         }
        else if(internalAtkCD < 0.0f)
         {
