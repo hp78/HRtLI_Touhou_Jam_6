@@ -35,18 +35,7 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(musicType == 0)
-        {
-            AudioManager.PlayMusic(Music.Stage2);
-        }
-        else if (musicType == 1)
-        {
-            AudioManager.PlayMusic(Music.Boss);
-        }
-        else if (musicType == 2)
-        {
-            AudioManager.PlayMusic(Music.Stage);
-        }
+        AudioManager.PlayMusic(Music.Stage);
 
         instance = this;
 
@@ -101,6 +90,21 @@ public class GameStateManager : MonoBehaviour
         comboCount.value = 0;
 
         Time.timeScale = 1.0f;
+
+        if (musicType == 0)
+        {
+            AudioManager.PlayMusic(Music.Stage2);
+        }
+        else if (musicType == 1)
+        {
+            AudioManager.PlayMusic(Music.Boss);
+        }
+        else if (musicType == 2)
+        {
+            AudioManager.PlayMusic(Music.Stage);
+        }
+
+
         guc.SetGameState(1);
         currGameState = GameState.PLAYING;
     }
@@ -136,6 +140,9 @@ public class GameStateManager : MonoBehaviour
 
     public void RestartGame()
     {
+        AudioManager.StopMusic();
+        
+
         SceneManager.LoadScene(currScene);
     }
 
