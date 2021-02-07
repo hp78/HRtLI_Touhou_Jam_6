@@ -8,6 +8,7 @@ public class EnemyMook : MonoBehaviour
     public EnemyState currEnemyState = EnemyState.IDLE;
     public int enemyHealth = 3;
     public bool isMelee = true;
+    public bool isMove = false;
 
     public Animator animator;
     public SpriteRenderer spriteRender;
@@ -23,12 +24,18 @@ public class EnemyMook : MonoBehaviour
     public float atkCD;
     public float internalAtkCD;
 
+    public float moveCD;
+    public float internalMoveCD;
+    public float moveForce;
+
     public Transform enemyProjectile;
     public Transform projectileSpawnPos;
     public Vector2 projectileSpeed;
 
     public Transform player;
     public IntVal playerCombo;
+
+    Rigidbody2D rigidbody2d;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +49,7 @@ public class EnemyMook : MonoBehaviour
             mookBehaviour = RangeBehaviour;
         }
 
-
+        rigidbody2d = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -57,18 +64,34 @@ public class EnemyMook : MonoBehaviour
         {
             mookBehaviour();
             internalAtkCD -= Time.deltaTime;
+            internalMoveCD -= Time.deltaTime;
         }
 
     }
 
     void MeleeBehaviour()
     {
-       if(internalAtkCD < 0.0f)
+       if(isMove)
+        {
+            if (Vector3.Magnitude(player.position - this.transform.position) > .5f && internalMoveCD < 0.0f)
+            {
+                rigidbody2d.velocity= new Vector2(moveForce, 2f);
+                internalMoveCD = moveCD;
+            }   
+            else if((Vector3.Magnitude(player.position - this.transform.position) <= 1f && internalAtkCD < 0.0f) )
+                {
+                attackAnimation.Play("SwingSword");
+                internalAtkCD = atkCD;
+            }
+        }
+       else if(internalAtkCD < 0.0f)
         {
             attackAnimation.Play("SwingSword");
             internalAtkCD = atkCD;
         }
     }
+
+    
 
     void RangeBehaviour()
     {
@@ -80,8 +103,6 @@ public class EnemyMook : MonoBehaviour
             Destroy(temp.gameObject, 5f);
             attackAnimation.Play("GunFire");
             internalAtkCD = atkCD;
-
-
         }
     }
 
