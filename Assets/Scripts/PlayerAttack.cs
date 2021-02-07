@@ -13,7 +13,8 @@ public class PlayerAttack : MonoBehaviour
         HIGH,
         LOW,
         NEAR,
-        FAR
+        FAR,
+        REALLYFAR
     }
 
     //testing
@@ -111,7 +112,7 @@ public class PlayerAttack : MonoBehaviour
 
             case ("66"):    
             case ("44"):            
-                StartCoroutine(Action(reallyFarJabForce , .6f, AttackBoxArea.FAR, 1f)); 
+                StartCoroutine(Action(reallyFarJabForce , .6f, AttackBoxArea.REALLYFAR, 1f)); 
                 attackCD += 0.3f;
                 break;
 
@@ -156,10 +157,21 @@ public class PlayerAttack : MonoBehaviour
 
                     break;
                 }
+            case (AttackBoxArea.REALLYFAR):
+                {
+                    if (!facingRight) spawnBox = atkBoxFar;
+                    else spawnBox = atkBoxFarR;
+                    animator.Play("diveKick");
+
+                    break;
+                }
             case (AttackBoxArea.LOW):
                 {
-                    if (!facingRight) spawnBox = atkBoxDown;
-                    else                spawnBox = atkBoxDownR;
+                    if (!facingRight)
+                    { spawnBox = atkBoxDown; animator.Play("dropKick"); }
+
+
+                    else { spawnBox = atkBoxDownR; animator.Play("dropKickR"); }
 
                     break;
                 }
@@ -179,7 +191,8 @@ public class PlayerAttack : MonoBehaviour
                     break;
                 }
 
-            default: spawnBox = atkBoxNear; break;
+                   
+            default: spawnBox = atkBoxNear; animator.Play("shortJap"); break;
         }
 
 
@@ -207,6 +220,7 @@ public class PlayerAttack : MonoBehaviour
 
         Rigidbody2D rigid2D = Instantiate(ballProjectile, transform).GetComponent<Rigidbody2D>();
         rigid2D.AddForce(new Vector2(force, 0.0f), ForceMode2D.Impulse);
+        animator.Play("hado");
         Destroy(rigid2D.gameObject, 3f);
     }
 
