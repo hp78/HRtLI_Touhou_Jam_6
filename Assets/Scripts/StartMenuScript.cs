@@ -20,8 +20,12 @@ public class StartMenuScript : MonoBehaviour
         if (Input.anyKeyDown)
         {
             SceneManager.LoadScene(nextScene);
-            
         }
 
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(nextScene);
     }
 }
