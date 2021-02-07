@@ -34,6 +34,11 @@ public class PlayerTakeDamagePhysics : MonoBehaviour
             if (temp.x > 0f) tempb = true;
             StartCoroutine(TakeDmg(tempb));
         }
+
+        if (collision.CompareTag("DeathZone"))
+        {
+            GameStateManager.instance.SetGameover();
+        }
     }
 
     IEnumerator TakeDmg(bool right)

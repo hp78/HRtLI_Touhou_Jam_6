@@ -7,6 +7,7 @@ TagManager:
   - Undefined
   - PlayerAttackBox
   - EnemyAttackBox
+  - DeathZone
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - PlayerAttackBox
   - EnemyAttackBox
   - IgnoreJump
-  - 
+  - DeathZone
   - 
   - 
   - 
