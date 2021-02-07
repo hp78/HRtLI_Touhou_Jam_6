@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using JSAM;
 public class EnemyMook : MonoBehaviour
 {
     public enum EnemyState { IDLE, ACTIVE, DEAD }
@@ -103,12 +103,14 @@ public class EnemyMook : MonoBehaviour
             Destroy(temp.gameObject, 5f);
             attackAnimation.Play("GunFire");
             internalAtkCD = atkCD;
+            PlayShootSound();
         }
     }
 
     public void ReceiveDamage(int val = 1)
     {
         --enemyHealth;
+        PlayDamagedSound();
 
         ++playerCombo.value;
         GameUIController.instance.UpdateComboCounter();
@@ -148,5 +150,43 @@ public class EnemyMook : MonoBehaviour
         spriteRender.color = Color.white;
         currCoroutine = null;
         yield return new WaitForFixedUpdate();
+    }
+
+    public void PlayShootSound()
+    {
+        int val = Random.Range(1, 3);
+        switch (val)
+        {
+            case 1:
+                AudioManager.PlaySound(Sounds.Pistol1);
+                break;
+
+            case 2:
+                AudioManager.PlaySound(Sounds.Pistol2);
+                break;
+        }
+    }
+
+    public void PlayDamagedSound()
+    {
+        int val = Random.Range(1, 5);
+        switch (val)
+        {
+            case 1:
+                AudioManager.PlaySound(Sounds.Hit1);
+                break;
+
+            case 2:
+                AudioManager.PlaySound(Sounds.Hit2);
+                break;
+
+            case 3:
+                AudioManager.PlaySound(Sounds.Hit3);
+                break;
+
+            case 4:
+                AudioManager.PlaySound(Sounds.Hit4);
+                break;
+        }
     }
 }

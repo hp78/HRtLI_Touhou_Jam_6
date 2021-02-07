@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -98,23 +99,40 @@ public class PlayerAttack : MonoBehaviour
 
         switch (input)
         {
-            case ("8"): if(!inAir)  StartCoroutine(Action(uppercutForce , 0.0f, AttackBoxArea.HIGH, 1f));break;
+            case ("8"): 
+                if(!inAir)  
+                    StartCoroutine(Action(uppercutForce , 0.0f, AttackBoxArea.HIGH, 1f));
+                break;
 
             case ("6"):        
-            case ("4"):             StartCoroutine(Action(farJabForce , 0.25f, AttackBoxArea.FAR, .5f)); break;
+            case ("4"):             
+                StartCoroutine(Action(farJabForce , 0.25f, AttackBoxArea.FAR, .5f)); 
+                break;
 
             case ("66"):    
-            case ("44"):            StartCoroutine(Action(reallyFarJabForce , .6f, AttackBoxArea.FAR, 1f)); attackCD += 0.3f; break;
+            case ("44"):            
+                StartCoroutine(Action(reallyFarJabForce , .6f, AttackBoxArea.FAR, 1f)); 
+                attackCD += 0.3f;
+                break;
 
-            case ("2"): if (inAir)  StartCoroutine(Action(diveForce , 0.1f, AttackBoxArea.LOW, .5f)); attackCD +=0.3f ; break;
+            case ("2"): if (inAir)  
+                    StartCoroutine(Action(diveForce , 0.1f, AttackBoxArea.LOW, .5f)); 
+                attackCD +=0.3f ; 
+                break;
 
 
-            case ("236"):            Hadouken(true) ; break;
-            case ("214"):            Hadouken(false) ; break;
+            case ("236"):            
+                Hadouken(true) ;
+                break;
+            case ("214"):            
+                Hadouken(false) ; 
+                break;
 
-            default:                StartCoroutine(Action(jabForce, 0.0f, AttackBoxArea.NEAR, 0.2f)); break;
+            default:                
+                StartCoroutine(Action(jabForce, 0.0f, AttackBoxArea.NEAR, 0.2f)); 
+                break;
         }
-
+        PlayAttackSound();
     }
     
 
@@ -287,5 +305,28 @@ public class PlayerAttack : MonoBehaviour
         sprite.color = Color.white;
         currCoroutine = null;
         yield return new WaitForFixedUpdate();
+    }
+
+    public void PlayAttackSound()
+    {
+        int val = Random.Range(1, 5);
+        switch (val)
+        {
+            case 1:
+                AudioManager.PlaySound(Sounds.Attack1);
+                break;
+
+            case 2:
+                AudioManager.PlaySound(Sounds.Attack2);
+                break;
+
+            case 3:
+                AudioManager.PlaySound(Sounds.Attack3);
+                break;
+
+            case 4:
+                AudioManager.PlaySound(Sounds.Attack4);
+                break;
+        }
     }
 }

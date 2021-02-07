@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfb8002b44af6934a9ae327c8311d458, type: 3}
-  m_Name: Boss
+  m_Name: Stage2
   m_EditorClassIdentifier: 
-  file: {fileID: 8300000, guid: d11d484da8432ec49911f537e48faf7e, type: 3}
+  file: {fileID: 8300000, guid: fcbc543f3b7efc04a8477d0f3c4f5916, type: 3}
   files: []
   useLibrary: 0
   neverRepeat: 0
   lastClipIndex: -1
   category: 
-  relativeVolume: 0.8
+  relativeVolume: 1
   spatialize: 0
   maxDistance: 0
   priority: 128
@@ -33,7 +33,7 @@ MonoBehaviour:
   bypassEffects: 0
   bypassListenerEffects: 0
   bypassReverbZones: 0
-  safeName: Boss
+  safeName: Stage2
   chorusFilter:
     enabled: 0
     dryMix: 0

@@ -8095,6 +8095,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6611023423771230190, guid: 4035d4a1a7177164bb495355fdcdbc05,
         type: 3}
+      propertyPath: musicType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611023423771230190, guid: 4035d4a1a7177164bb495355fdcdbc05,
+        type: 3}
       propertyPath: nextScene
       value: FinalLevel
       objectReference: {fileID: 0}

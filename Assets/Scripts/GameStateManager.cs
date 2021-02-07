@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using JSAM;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -25,12 +26,28 @@ public class GameStateManager : MonoBehaviour
     float hardLoadDelay = 0.0f;
 
     //
+    public int musicType = 0;
+
+    //
     public enum GameState { LOADING, PLAYING, PAUSED, NEXTLEVEL, WIN , GAMEOVER };
     public GameState currGameState = GameState.LOADING;
 
     // Start is called before the first frame update
     void Start()
     {
+        if(musicType == 0)
+        {
+            AudioManager.PlayMusic(Music.Stage2);
+        }
+        else if (musicType == 1)
+        {
+            AudioManager.PlayMusic(Music.Boss);
+        }
+        else if (musicType == 2)
+        {
+            AudioManager.PlayMusic(Music.Stage);
+        }
+
         instance = this;
 
         if (guc == null)

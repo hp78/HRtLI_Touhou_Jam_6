@@ -150,18 +150,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7241a3e106230140bd9d59ff2d17ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioFileObjects: []
+  audioFileObjects:
+  - {fileID: 11400000, guid: 2fb66b3bc6d86d744a0171941c9bbd1b, type: 2}
+  - {fileID: 11400000, guid: 143857b6621ad3a4495f1e41b4e081e0, type: 2}
+  - {fileID: 11400000, guid: f5fffabb714baca42bfa28b66e786102, type: 2}
+  - {fileID: 11400000, guid: 9964dac41b563c544a15dd0bc56af355, type: 2}
+  - {fileID: 11400000, guid: 9428e254c59c95c4783dca47d138049d, type: 2}
+  - {fileID: 11400000, guid: 4fb83aefe69c75548a3383876331720c, type: 2}
+  - {fileID: 11400000, guid: 4a6a1a2a33589f343a1809701c378ae1, type: 2}
+  - {fileID: 11400000, guid: f9dbe4155b3311f4ab1d5e817e9782d9, type: 2}
+  - {fileID: 11400000, guid: ac279b6f842d2674ebca95abf3eef31d, type: 2}
+  - {fileID: 11400000, guid: f67a5cc939fee934eaea7268a8843f74, type: 2}
+  - {fileID: 11400000, guid: c31399b90f49edd4ba721bf36961eb7e, type: 2}
   audioFileMusicObjects:
   - {fileID: 11400000, guid: 3f3ed8bbf209b0d4f8ae5c53e5d3ebe5, type: 2}
   - {fileID: 11400000, guid: c23eba0fe3725654ea74860e0bed81c5, type: 2}
+  - {fileID: 11400000, guid: 471c77bf1de27a84d9a04cb8e38899cc, type: 2}
   - {fileID: 11400000, guid: 4aa833235f64d1745b7e9ecf6faf40f9, type: 2}
   sceneSoundEnumName: JSAM.Sounds
   sceneMusicEnumName: JSAM.Music
-  masterVolume: 1
+  masterVolume: 0.8
   masterMuted: 0
   soundVolume: 1
   soundMuted: 0
-  musicVolume: 1
+  musicVolume: 0.8
   musicMuted: 0
   spatialSound: 1
   audioSources: 32

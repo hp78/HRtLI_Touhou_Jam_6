@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using JSAM;
 
 public class BossBehaviour : MonoBehaviour
 {
@@ -36,15 +37,55 @@ public class BossBehaviour : MonoBehaviour
     public void BoomAt(int index)
     {
         bmb.BoomAtSpot(index);
+        AudioManager.PlaySound(Sounds.Boom);
+    }
+
+    public void PlayShootSound()
+    {
+        int val = Random.Range(1, 3);
+        switch (val)
+        {
+            case 1:
+                AudioManager.PlaySound(Sounds.Pistol1);
+                break;
+
+            case 2:
+                AudioManager.PlaySound(Sounds.Pistol2);
+                break;
+        }
+    }
+
+    public void PlayDamagedSound()
+    {
+        int val = Random.Range(1, 5);
+        switch (val)
+        {
+            case 1:
+                AudioManager.PlaySound(Sounds.Hit1);
+                break;
+
+            case 2:
+                AudioManager.PlaySound(Sounds.Hit2);
+                break;
+
+            case 3:
+                AudioManager.PlaySound(Sounds.Hit3);
+                break;
+
+            case 4:
+                AudioManager.PlaySound(Sounds.Hit4);
+                break;
+        }
     }
 
     public void ReceiveDamage()
     {
         ++comboCount.value;
+        PlayDamagedSound();
 
         if (comboCount.value > 99)
         {
-            // win
+            GameStateManager.instance.GoToNextLevel();
         }
         else
         {
