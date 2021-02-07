@@ -20,6 +20,8 @@ public class PlayerAttack : MonoBehaviour
     //testing
     public float forceMultiplier = 50.0f;
 
+    public IntVal playerHealth;
+
     public List<char> inputKeys;
     float inputHoldTime;
 
@@ -216,9 +218,14 @@ public class PlayerAttack : MonoBehaviour
     void Hadouken(bool facingRight)
     {
         float force = ballForce;
-        if (!facingRight) force *= -1f;
+
 
         Rigidbody2D rigid2D = Instantiate(ballProjectile, transform).GetComponent<Rigidbody2D>();
+        if (!facingRight)
+        {
+            force *= -1f;
+            rigid2D.GetComponent<SpriteRenderer>().flipX = true;
+        }
         rigid2D.AddForce(new Vector2(force, 0.0f), ForceMode2D.Impulse);
         animator.Play("hado");
         Destroy(rigid2D.gameObject, 3f);
@@ -302,6 +309,8 @@ public class PlayerAttack : MonoBehaviour
         if (currCoroutine != null)
             StopCoroutine(currCoroutine);
         currCoroutine = StartCoroutine(DamageFlicker());
+        --GameUIController.instance.playerHealth.value;
+        GameUIController.instance.UpdateHealth();
     }
 
 

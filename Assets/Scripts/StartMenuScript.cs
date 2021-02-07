@@ -7,11 +7,13 @@ using JSAM;
 public class StartMenuScript : MonoBehaviour
 {
     public string nextScene;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent < Animator>();
+        anim.Play("MenuMeiling");
     }
 
     // Update is called once per frame
