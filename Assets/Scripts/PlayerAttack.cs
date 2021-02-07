@@ -15,6 +15,9 @@ public class PlayerAttack : MonoBehaviour
         FAR
     }
 
+    //testing
+    public float forceMultiplier = 50.0f;
+
     public List<char> inputKeys;
     float inputHoldTime;
 
@@ -79,7 +82,7 @@ public class PlayerAttack : MonoBehaviour
 
             attackCD -= Time.deltaTime;
             sprite.flipX = facingRight;
-            if (rigidbody2d.gravityScale < 1f) rigidbody2d.gravityScale += .01f;
+            if (rigidbody2d.gravityScale < 10f) rigidbody2d.gravityScale += .1f;
         }
 
         gettingHitCD -= Time.deltaTime;
@@ -93,15 +96,15 @@ public class PlayerAttack : MonoBehaviour
 
         switch (input)
         {
-            case ("8"): if(!inAir)  StartCoroutine(Action(uppercutForce, 0.0f, AttackBoxArea.HIGH, 1f));break;
+            case ("8"): if(!inAir)  StartCoroutine(Action(uppercutForce , 0.0f, AttackBoxArea.HIGH, 1f));break;
 
             case ("6"):        
-            case ("4"):             StartCoroutine(Action(farJabForce, 0.25f, AttackBoxArea.FAR, .5f)); break;
+            case ("4"):             StartCoroutine(Action(farJabForce , 0.25f, AttackBoxArea.FAR, .5f)); break;
 
             case ("66"):    
-            case ("44"):            StartCoroutine(Action(reallyFarJabForce, .6f, AttackBoxArea.FAR, 1f)); attackCD += 0.3f; break;
+            case ("44"):            StartCoroutine(Action(reallyFarJabForce , .6f, AttackBoxArea.FAR, 1f)); attackCD += 0.3f; break;
 
-            case ("2"): if (inAir)  StartCoroutine(Action(diveForce, 0.1f, AttackBoxArea.LOW, .5f)); attackCD +=0.3f ; break;
+            case ("2"): if (inAir)  StartCoroutine(Action(diveForce , 0.1f, AttackBoxArea.LOW, .5f)); attackCD +=0.3f ; break;
 
 
             case ("236"):            Hadouken(true) ; break;
@@ -158,7 +161,7 @@ public class PlayerAttack : MonoBehaviour
         {
             force *= new Vector2(-1f, 1f);
         }
-        rigidbody2d.velocity = force;
+        rigidbody2d.velocity = force * forceMultiplier;
 
         Transform tempBox = Instantiate(spawnBox, spawnBox.position ,spawnBox.rotation, this.transform);
         tempBox.gameObject.SetActive(true);

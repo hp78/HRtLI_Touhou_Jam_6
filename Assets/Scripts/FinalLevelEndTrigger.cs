@@ -25,7 +25,7 @@ public class FinalLevelEndTrigger : MonoBehaviour
         {
             playerGO.SetActive(false);
             cvc.Follow = rocketTF;
-            Invoke("ChangeLevel", 7.5f);
+            Invoke("ChangeLevel", 8.0f);
         }
     }
 
