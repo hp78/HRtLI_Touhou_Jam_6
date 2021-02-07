@@ -292,11 +292,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1403295444348164045, guid: 8d719ee9f7d7d0343839199b62046f80,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1403295445693954449, guid: 8d719ee9f7d7d0343839199b62046f80,
         type: 3}
       propertyPath: m_RootOrder
@@ -351,11 +346,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1403295445693954450, guid: 8d719ee9f7d7d0343839199b62046f80,
-        type: 3}
-      propertyPath: forceMultiplier
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1403295445693954542, guid: 8d719ee9f7d7d0343839199b62046f80,
         type: 3}
@@ -14360,7 +14350,7 @@ PrefabInstance:
     - target: {fileID: 2624152343745327473, guid: 10ab3571bcc45d442ae1c49b9743f15b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1499987
+      value: 1.3500003
       objectReference: {fileID: 0}
     - target: {fileID: 2624152343745327473, guid: 10ab3571bcc45d442ae1c49b9743f15b,
         type: 3}
@@ -14520,7 +14510,7 @@ PrefabInstance:
     - target: {fileID: 2404355008145644871, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1499987
+      value: 1.3500003
       objectReference: {fileID: 0}
     - target: {fileID: 2404355008145644871, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
         type: 3}
@@ -14561,6 +14551,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404355008346413846, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
+        type: 3}
+      propertyPath: m_ScreenY
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca93d48f7e968ab41b67e9f3d81ad20d, type: 3}

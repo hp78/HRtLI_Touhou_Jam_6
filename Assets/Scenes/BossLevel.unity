@@ -233,7 +233,7 @@ Transform:
   m_Children:
   - {fileID: 758674178}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &243844689
 GameObject:
@@ -267,9 +267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 243844693}
-  bossSprite: {fileID: 0}
+  bossSprite: {fileID: 1523795353}
   bmb: {fileID: 130879331}
-  comboCount: {fileID: 0}
+  comboCount: {fileID: 11400000, guid: 1120911fc1a972a4a9e329e67bef478e, type: 2}
 --- !u!61 &243844691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -312,7 +312,7 @@ Transform:
   - {fileID: 395172461}
   - {fileID: 470847115}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &243844693
 Animator:
@@ -6285,6 +6285,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1078799301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2404355008346413844, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2404355009756262469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1078799305
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078799301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damping: 0.5
 --- !u!1001 &1126656631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6926,7 +6945,7 @@ PrefabInstance:
     - target: {fileID: 2404355008145644871, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.209005
+      value: 5.409007
       objectReference: {fileID: 0}
     - target: {fileID: 2404355008145644871, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
         type: 3}
@@ -6968,6 +6987,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2404355008346413846, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
+        type: 3}
+      propertyPath: m_ScreenY
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404355008346413846, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
+        type: 3}
+      propertyPath: m_LookaheadTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404355008346413846, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
+        type: 3}
+      propertyPath: m_LookaheadSmoothing
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca93d48f7e968ab41b67e9f3d81ad20d, type: 3}
 --- !u!1001 &2624152343710315738
@@ -6990,7 +7024,7 @@ PrefabInstance:
     - target: {fileID: 2624152343745327473, guid: 10ab3571bcc45d442ae1c49b9743f15b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.209005
+      value: 5.409007
       objectReference: {fileID: 0}
     - target: {fileID: 2624152343745327473, guid: 10ab3571bcc45d442ae1c49b9743f15b,
         type: 3}

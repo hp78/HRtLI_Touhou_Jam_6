@@ -19,6 +19,7 @@ public class GameStateManager : MonoBehaviour
     //
     [Space(5)]
     public IntVal playerHealth;
+    public IntVal comboCount;
 
     bool isLastScene = false;
     float hardLoadDelay = 0.0f;
@@ -80,6 +81,7 @@ public class GameStateManager : MonoBehaviour
     {
         hardLoadDelay += Time.unscaledDeltaTime;
         playerHealth.value = 5;
+        comboCount.value = 0;
 
         Time.timeScale = 1.0f;
         guc.SetGameState(1);

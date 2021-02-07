@@ -5,13 +5,15 @@ using UnityEngine;
 public class BossBehaviour : MonoBehaviour
 {
     public Animator animator;
-    public Sprite bossSprite;
+    public SpriteRenderer bossSprite;
 
     public BossMapBehaviour bmb;
 
     public IntVal comboCount;
     bool isHeads = false;
     float countdown = 1.0f;
+
+    Coroutine currCoroutine = null;
 
     // Start is called before the first frame update
     void Start()
@@ -38,9 +40,43 @@ public class BossBehaviour : MonoBehaviour
 
     public void ReceiveDamage()
     {
-        if(comboCount.value > 99)
+        ++comboCount.value;
+
+        if (comboCount.value > 99)
         {
             // win
+        }
+        else
+        {
+            if (currCoroutine != null)
+                StopCoroutine(currCoroutine);
+            currCoroutine = StartCoroutine(DamageFlicker());
+        }
+
+        GameUIController.instance.UpdateComboCounter();
+    }
+
+
+    IEnumerator DamageFlicker()
+    {
+        bossSprite.color = Color.red;
+        yield return new WaitForFixedUpdate();
+        bossSprite.color = Color.white;
+        yield return new WaitForFixedUpdate();
+        bossSprite.color = Color.black;
+        yield return new WaitForFixedUpdate();
+        bossSprite.color = Color.red;
+        yield return new WaitForFixedUpdate();
+        bossSprite.color = Color.white;
+        currCoroutine = null;
+        yield return new WaitForFixedUpdate();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("PlayerAttackBox"))
+        {
+            ReceiveDamage();
         }
     }
 }

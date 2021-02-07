@@ -194,6 +194,11 @@ MonoBehaviour:
   attackAnimation: {fileID: 2143728262713603196}
   atkCD: 0
   internalAtkCD: 0
+  enemyProjectile: {fileID: 0}
+  projectileSpawnPos: {fileID: 0}
+  projectileSpeed: {x: 0, y: 0}
+  player: {fileID: 0}
+  playerCombo: {fileID: 11400000, guid: 1120911fc1a972a4a9e329e67bef478e, type: 2}
 --- !u!50 &8907315023540029665
 Rigidbody2D:
   serializedVersion: 4

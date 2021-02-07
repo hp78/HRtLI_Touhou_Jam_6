@@ -28,6 +28,7 @@ public class EnemyMook : MonoBehaviour
     public Vector2 projectileSpeed;
 
     public Transform player;
+    public IntVal playerCombo;
 
     // Start is called before the first frame update
     void Start()
@@ -87,6 +88,9 @@ public class EnemyMook : MonoBehaviour
     public void ReceiveDamage(int val = 1)
     {
         --enemyHealth;
+
+        ++playerCombo.value;
+        GameUIController.instance.UpdateComboCounter();
 
         if (enemyHealth < 1)
         {

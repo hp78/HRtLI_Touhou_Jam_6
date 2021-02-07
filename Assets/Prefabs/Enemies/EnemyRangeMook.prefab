@@ -385,6 +385,7 @@ MonoBehaviour:
   projectileSpawnPos: {fileID: 3534270102127384618}
   projectileSpeed: {x: -5, y: 0}
   player: {fileID: 0}
+  playerCombo: {fileID: 11400000, guid: 1120911fc1a972a4a9e329e67bef478e, type: 2}
 --- !u!50 &476242666040419212
 Rigidbody2D:
   serializedVersion: 4

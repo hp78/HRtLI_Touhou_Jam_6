@@ -81,4 +81,9 @@ public class GameUIController : MonoBehaviour
             playerHealths[i].SetActive(false);
         }
     }
+
+    public void UpdateComboCounter()
+    {
+        comboCountObj.text = playerCombo.value.ToString();
+}
 }

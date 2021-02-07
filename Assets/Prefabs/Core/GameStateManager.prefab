@@ -47,4 +47,5 @@ MonoBehaviour:
   currScene: 
   nextScene: 
   playerHealth: {fileID: 11400000, guid: 22ef181afbf18b5448c916f6daceabc1, type: 2}
+  comboCount: {fileID: 11400000, guid: 1120911fc1a972a4a9e329e67bef478e, type: 2}
   currGameState: 0
