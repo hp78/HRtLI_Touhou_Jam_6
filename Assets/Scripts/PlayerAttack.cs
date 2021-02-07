@@ -51,6 +51,8 @@ public class PlayerAttack : MonoBehaviour
     float gettingHitCD;
     Coroutine currCoroutine = null;
 
+    public Animator animator;
+
     public bool inAir;
     // Start is called before the first frame update
     void Start()
@@ -58,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
 
         layermask = (1 << 0);   //Player
-//        layermask = (1 << 8);   //Player
+        //layermask = (1 << 9);   //Player
 
 
        // layermask = ~layermask;
@@ -132,24 +134,30 @@ public class PlayerAttack : MonoBehaviour
                 {
                     if (!facingRight) spawnBox = atkBoxFar;
                     else                spawnBox = atkBoxFarR;
+                    animator.Play("farJab");
+
                     break;
                 }
             case (AttackBoxArea.LOW):
                 {
                     if (!facingRight) spawnBox = atkBoxDown;
                     else                spawnBox = atkBoxDownR;
+
                     break;
                 }
             case (AttackBoxArea.NEAR):
                 {
                     if (!facingRight) spawnBox = atkBoxNear;
                     else                spawnBox = atkBoxNearR;
+                    animator.Play("shortJap");
+
                     break;
                 }
             case (AttackBoxArea.HIGH):
                 {
                     if (!facingRight) spawnBox = atkBoxHigh;
                     else                spawnBox = atkBoxHighR;
+                    animator.Play("upperCut");
                     break;
                 }
 

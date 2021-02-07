@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 2211129292935436493}
   - component: {fileID: 2213086908898304558}
   - component: {fileID: 5886652280948362219}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: EnemyMeleeMookMove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
