@@ -74,8 +74,8 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gettingHitCD < 0.0f)
-        {
+      
+        
             if (attackCD < 0f)
             {
                 if (Input.GetKeyDown(KeyCode.Z))
@@ -89,7 +89,7 @@ public class PlayerAttack : MonoBehaviour
             attackCD -= Time.deltaTime;
             sprite.flipX = facingRight;
             if (rigidbody2d.gravityScale < 10f) rigidbody2d.gravityScale += .1f;
-        }
+        
 
         gettingHitCD -= Time.deltaTime;
     }
