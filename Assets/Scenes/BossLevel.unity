@@ -378,6 +378,8 @@ Transform:
   - {fileID: 1287220218}
   - {fileID: 395172461}
   - {fileID: 470847115}
+  - {fileID: 1608933948}
+  - {fileID: 1163101827}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -612,9 +614,11 @@ GameObject:
   m_Component:
   - component: {fileID: 470847115}
   - component: {fileID: 470847116}
-  m_Layer: 0
+  - component: {fileID: 470847117}
+  - component: {fileID: 470847118}
+  m_Layer: 11
   m_Name: Bulletz
-  m_TagString: Untagged
+  m_TagString: EnemyAttackBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -683,6 +687,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &470847117
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470847114}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.25
+--- !u!50 &470847118
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470847114}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &522326876
 GameObject:
   m_ObjectHideFlags: 0
@@ -8162,6 +8203,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &1163101826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1163101827}
+  - component: {fileID: 1163101828}
+  m_Layer: 0
+  m_Name: BombCollider
+  m_TagString: EnemyAttackBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1163101827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163101826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 243844692}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1163101828
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163101826}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5.05
 --- !u!1 &1166732146
 GameObject:
   m_ObjectHideFlags: 0
@@ -8634,6 +8722,53 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &1608933947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608933948}
+  - component: {fileID: 1608933949}
+  m_Layer: 0
+  m_Name: BodyCollider
+  m_TagString: EnemyAttackBox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608933948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608933947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 243844692}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1608933949
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608933947}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.12
 --- !u!1 &1682710889
 GameObject:
   m_ObjectHideFlags: 0
@@ -8978,12 +9113,12 @@ PrefabInstance:
     - target: {fileID: 1403295445693954449, guid: 8d719ee9f7d7d0343839199b62046f80,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.642426
+      value: -1.22
       objectReference: {fileID: 0}
     - target: {fileID: 1403295445693954449, guid: 8d719ee9f7d7d0343839199b62046f80,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.409007
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 1403295445693954449, guid: 8d719ee9f7d7d0343839199b62046f80,
         type: 3}
@@ -9072,12 +9207,12 @@ PrefabInstance:
     - target: {fileID: 2404355008145644871, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6424267
+      value: -1.2200007
       objectReference: {fileID: 0}
     - target: {fileID: 2404355008145644871, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.409007
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 2404355008145644871, guid: ca93d48f7e968ab41b67e9f3d81ad20d,
         type: 3}
@@ -9172,12 +9307,12 @@ PrefabInstance:
     - target: {fileID: 2624152343745327473, guid: 10ab3571bcc45d442ae1c49b9743f15b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6424267
+      value: -1.2200007
       objectReference: {fileID: 0}
     - target: {fileID: 2624152343745327473, guid: 10ab3571bcc45d442ae1c49b9743f15b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.409007
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 2624152343745327473, guid: 10ab3571bcc45d442ae1c49b9743f15b,
         type: 3}
