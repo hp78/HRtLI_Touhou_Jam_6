@@ -386,14 +386,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currEnemyState: 0
-  enemyHealth: 10
+  enemyHealth: 2
   isMelee: 0
+  isMove: 0
   animator: {fileID: 4294094820686876051}
   spriteRender: {fileID: 8174082723829567423}
   deathFX: {fileID: 180128, guid: 166b62d9f20a44949a5500d786fce32f, type: 3}
   attackAnimation: {fileID: 6364194569968345933}
   atkCD: 5
   internalAtkCD: 0
+  moveCD: 0
+  internalMoveCD: 0
+  moveForce: 0
   enemyProjectile: {fileID: 3534270102190259293}
   projectileSpawnPos: {fileID: 3534270102127384618}
   projectileSpeed: {x: -5, y: 0}

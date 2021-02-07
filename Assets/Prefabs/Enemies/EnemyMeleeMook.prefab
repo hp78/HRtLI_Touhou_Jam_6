@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currEnemyState: 0
-  enemyHealth: 4
+  enemyHealth: 3
   isMelee: 1
   isMove: 0
   animator: {fileID: 5084959259406444286}

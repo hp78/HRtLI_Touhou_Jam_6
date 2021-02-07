@@ -1777,6 +1777,7 @@ MonoBehaviour:
   comboTextObj: {fileID: 3841798346934004464}
   comboCountObj: {fileID: 3841798346798332677}
   playerCombo: {fileID: 11400000, guid: 1120911fc1a972a4a9e329e67bef478e, type: 2}
+  animator: {fileID: 3841798346332956689}
 --- !u!1 &3841798346555290419
 GameObject:
   m_ObjectHideFlags: 0

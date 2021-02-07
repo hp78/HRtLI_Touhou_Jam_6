@@ -22,7 +22,7 @@ public class GameUIController : MonoBehaviour
     public IntVal playerCombo;
 
     //
-    Animator animator;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class GameUIController : MonoBehaviour
 
         if (gsm == null)
             gsm = GameObject.Find("GameStateManager").GetComponent<GameStateManager>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
