@@ -305,7 +305,7 @@ public class PlayerAttack : MonoBehaviour
 
     public void ReceiveDamage()
     {
-        gettingHitCD = 0.75f;
+        gettingHitCD = 3f;
         if (currCoroutine != null)
             StopCoroutine(currCoroutine);
         currCoroutine = StartCoroutine(DamageFlicker());
